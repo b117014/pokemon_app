@@ -1,12 +1,32 @@
 import React,{Component} from 'react';
 import {Button,StyleSheet,View,Text,TouchableOpacity} from 'react-native'
 import { UserRegisterForm } from './UserRegisterForm';
+import { userRegisterApi } from '../_Api/User';
+import { setToken, setTokenStorage } from '../service/api';
+import { addUser } from '../_redux/action/User';
+import Spinner from 'react-native-loading-spinner-overlay'
+import {connect} from 'react-redux'
 
+const UserRegisterScreens = (props)=>{
+    const [isVisible, setVisible] = React.useState(false)
 
-const UserRegisterScreen = (props)=>{
 
     const onSubmitCallBack = (values)=>{
-            console.log(values)
+        const {email, password} = values
+        setVisible(true)
+            userRegisterApi(email, password)
+                .then(res=>{
+                    console.log(res.data)
+                    setToken(JSON.stringify(res.data.token))
+                    setTokenStorage(res.data.token)
+                    props.addUserRedux(res.data)
+                    setVisible(false)
+
+                }).catch(err=>{
+                    console.log(err)
+                    setVisible(false)
+
+                })
     }
 
     return(
@@ -24,6 +44,9 @@ const UserRegisterScreen = (props)=>{
                 </TouchableOpacity>
                 
             </View>
+            <Spinner
+                visible={isVisible}
+            />
         </View>
     )
 }
@@ -47,5 +70,13 @@ const styles = StyleSheet.create({
 
      }
 })
+
+function mapStateToDispatch(dispatch){
+    return{
+        addUserRedux: (data)=>dispatch(addUser(data))
+    }
+}
+
+const UserRegisterScreen = connect(null, mapStateToDispatch)(UserRegisterScreens)
 
 export {UserRegisterScreen}

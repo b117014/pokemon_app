@@ -1,1 +1,1 @@
-export const url ='https://quiet-retreat-15415.herokuapp.com/api'
+export const url ='http://409527374989.ngrok.io/api'

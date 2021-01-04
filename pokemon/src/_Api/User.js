@@ -1,15 +1,15 @@
 import axios from 'axios'
 import { url } from './url'
 
-function userLogin(data){
-    return axios.post(`${url}/signin`, {data})
+function userLoginApi(email, password){
+    return axios.post(`${url}/login`, {email, password})
 }
 
-function userRegister(data){
-    return axios.post(`${url}/signup`, {data})
+function userRegisterApi(email, password){
+    return axios.post(`${url}/register`, {email, password})
 }
 
 export {
-    userLogin,
-    userRegister
+    userLoginApi,
+    userRegisterApi
 }

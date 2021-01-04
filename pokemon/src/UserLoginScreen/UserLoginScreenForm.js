@@ -5,7 +5,7 @@ import * as yup from 'yup';
 
 
 const schema = yup.object().shape({
-    username: yup.string().required("username is Required"),
+    email: yup.string().required("username is Required"),
     password: yup.string().required("password is required")
 })
 
@@ -14,17 +14,17 @@ const UserLoginScreenForm = (props)=>{
 
     return(
         <Formik
-         initialValues={{username:"",password:""}}
+         initialValues={{email:"",password:""}}
          validationSchema={schema}
          onSubmit={props.onSubmitCallBack}
          >
          {({handleSubmit,values,handleBlur,handleChange,errors,touched})=>(
                     <View style={styles.container}>
                         <TextInput 
-                        onBlur={handleBlur('username')}
-                        onChangeText={handleChange('username')}
+                        onBlur={handleBlur('email')}
+                        onChangeText={handleChange('email')}
                         placeholder="username"
-                        value={values.username}
+                        value={values.email}
                         style={styles.textInput1}
                         autoFocus={true}
                         

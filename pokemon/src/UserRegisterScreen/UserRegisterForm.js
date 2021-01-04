@@ -6,7 +6,7 @@ import * as yup from 'yup';
 
 const schema = yup.object().shape({
 
-    username: yup.string().required("Username is required"),
+    email: yup.string().required("Username is required"),
     password: yup.string().required("password is required"),
     
 
@@ -17,7 +17,7 @@ const UserRegisterForm  = (props)=>{
       return(
                 <ScrollView>
                     <Formik
-                    initialValues={{username:"",password:""}}
+                    initialValues={{email:"",password:""}}
                     validationSchema={schema}
                     onSubmit={props.onSubmitCallBack}
                     >
@@ -27,13 +27,13 @@ const UserRegisterForm  = (props)=>{
                                 <View style={[styles.textInput]}>
                                     <Text style={styles.label}>User Name</Text>
                                     <TextInput
-                                     onChangeText={handleChange('username')}
-                                     value={values.username}
-                                     placeholder="Username"
-                                     onBlur={handleBlur('username')}
+                                     onChangeText={handleChange('email')}
+                                     value={values.email}
+                                     placeholder="email"
+                                     onBlur={handleBlur('email')}
                                      underlineColorAndroid={'white'}
                                     />
-                                    {touched.username&& errors.username && (<Text style={styles.textError}>{errors.username}</Text>)}
+                                    {touched.email&& errors.email && (<Text style={styles.textError}>{errors.email}</Text>)}
                                 </View>
                                 <View style={[styles.textInput]}>
                                     <Text style={styles.label}>Password</Text>
