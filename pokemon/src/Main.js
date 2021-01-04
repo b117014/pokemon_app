@@ -4,15 +4,22 @@ import {NavigationContainer} from "@react-navigation/native";
 import {createStackNavigator} from '@react-navigation/stack'
 import { UserLoginScreen } from './UserLoginScreen/UserLoginScreen';
 import { UserRegisterScreen } from './UserRegisterScreen/UserRegisterScreen';
+import { BottomTab } from './BottomTab/BottomTab';
+import {connect} from 'react-redux'
 
 const Stack = createStackNavigator()
 
-const Main = (props)=>{
+const MainApp = (props)=>{
 
     return(
         <NavigationContainer>
             <Stack.Navigator>
                 
+                <Stack.Screen
+                    name='bottom-tab'
+                    component={BottomTab}
+
+                />
                 <Stack.Screen
                     name="user-register"
                     component={UserRegisterScreen}
@@ -33,4 +40,12 @@ const Main = (props)=>{
     )
 }
 
+
+function mapStateToProps(state){
+    return{
+        isAuth: state.user.isAuthenticated
+    }
+}
+
+const Main = connect(mapStateToProps, null)(MainApp)
 export {Main}
