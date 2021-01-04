@@ -1,12 +1,21 @@
 import React from 'react'
 import {View} from 'react-native'
+import {NavigationContainer} from "@react-navigation/native";
+import {createStackNavigator} from '@react-navigation/stack'
+
+const Stack = createStackNavigator()
 
 const Main = (props)=>{
 
     return(
-        <View>
+        <NavigationContainer>
+            <Stack.Navigator>
+                <Stack.Screen 
+                    
+                />
+            </Stack.Navigator>
 
-        </View>
+        </NavigationContainer>
     )
 }
 
