@@ -41,6 +41,9 @@ const UserLoginScreenForm = (props)=>{
                         <TouchableOpacity onPress={handleSubmit} style={styles.login}>
                             <Text style={styles.login_text}>Login</Text>
                         </TouchableOpacity>
+                        <TouchableOpacity onPress={props.onChangeNavigation} >
+                            <Text >Register</Text>
+                        </TouchableOpacity>
                     </View>
          )}
          </Formik>
@@ -78,7 +81,8 @@ const styles = StyleSheet.create({
          backgroundColor:"#5A404A",
          width:80,
          height:30,
-         textAlign:'center'
+         textAlign:'center',
+         borderRadius: 10
      },
      login_text:{
          textAlign:"center",

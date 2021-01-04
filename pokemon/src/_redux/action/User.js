@@ -1,4 +1,4 @@
-import { USER_LOGIN, USER_LOGOUT } from "../actionTypes/User"
+import { USER_LOGIN, USER_LOGOUT } from "../actionType/User"
 
 
 export const addUser = (data)=>{

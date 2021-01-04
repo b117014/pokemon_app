@@ -13,12 +13,17 @@ class UserLoginScreen extends React.Component{
     onSubmitCallBack = (values)=>{
         console.log(values)
     }
+
+    onChangeNavigation=()=>{
+        this.props.navigation.navigate('user-register')
+    }
    
     render(){
         return(
             
               <UserLoginScreenForm 
               onSubmitCallBack={this.onSubmitCallBack}
+              onChangeNavigation={this.onChangeNavigation}
               />
            
         )

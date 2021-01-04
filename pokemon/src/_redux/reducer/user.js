@@ -1,4 +1,4 @@
-const { USER_LOGIN, USER_LOGOUT } = require("../actionTypes/User");
+const { USER_LOGIN, USER_LOGOUT } = require("../actionType/User");
 
 
 const DEFAULT_STATE={
