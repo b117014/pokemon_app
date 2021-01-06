@@ -18,7 +18,9 @@ const MainApp = (props)=>{
                     <Stack.Screen
                     name='bottom-tab'
                     component={BottomTab}
-
+                    options={{
+                        headerTitle:"Pokemon"
+                    }}
                 />
                 ):(
                     <>
