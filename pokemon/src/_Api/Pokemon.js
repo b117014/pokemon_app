@@ -1,16 +1,18 @@
 import axios from 'axios'
+import { url } from './url'
 
 
 function getPokemonApi(){
-    const poke = 'https://pokeapi.co/api/v2/pokemon'
-    return axios.get(poke)
+   
+    return axios.get(`${url}/pokemon`)
 }
 
-function getPokemonDetailsApi(poke){
-    return axios.get(poke)
+function addPokemonApi(user_id,poke_id){
+    return axios.post(`${url}/pokemon`, {user_id,poke_id })
 }
 
 export {
     getPokemonApi,
-    getPokemonDetailsApi
+    addPokemonApi,
+    
 }

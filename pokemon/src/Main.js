@@ -14,13 +14,15 @@ const MainApp = (props)=>{
     return(
         <NavigationContainer>
             <Stack.Navigator>
-                
-                <Stack.Screen
+                {props.isAuth ? (
+                    <Stack.Screen
                     name='bottom-tab'
                     component={BottomTab}
 
                 />
-                <Stack.Screen
+                ):(
+                    <>
+                    <Stack.Screen
                     name="user-register"
                     component={UserRegisterScreen}
                     options={{
@@ -34,6 +36,10 @@ const MainApp = (props)=>{
                         headerShown: false
                     }}
                 />
+                </>
+                )}
+                
+                
             </Stack.Navigator>
 
         </NavigationContainer>

@@ -1,12 +1,12 @@
 import React from 'react'
-import {FlatList, View, StyleSheet} from 'react-native'
+import {FlatList, View, StyleSheet, SafeAreaView} from 'react-native'
 import { PokemonCard } from './PokemonCard'
 
 
 const PokemonListingContainer = (props)=>{
 
     return(
-        <View style={styles.listStyle}>
+        <SafeAreaView style={styles.listStyle}>
             <FlatList
                 data={props.data}
                 keyExtractor={(item)=>item.id}
@@ -14,16 +14,21 @@ const PokemonListingContainer = (props)=>{
                     <PokemonCard
                         key={i}
                         data={item}
+                        onSavePokemon={props.onSavePokemon}
+                        userId={props.userId}
                     />
                 )}
+                numColumns={3}
             />
-        </View>
+        </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
     listStyle:{
-        flex:1
+        flex: 1,
+        justifyContent: 'center',
+        backgroundColor: 'white',
     }
 })
 
